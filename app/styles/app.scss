@@ -11,3 +11,49 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 *::after {
   box-sizing: border-box;
 }
+
+body{
+  background-color: rgb(128,	0,	32);
+  background-size: cover;
+  // width: 100%;
+  // height: 100%;
+}
+
+.page {
+  h1{
+  text-align: center;
+  }
+  .title-image{
+    text-align: center;
+  }
+  .start{
+    margin-top: 25px;
+    text-align: center;
+  }
+  .btn{
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    font-family: arial;
+    font-size: 22px;
+    width: 200px;
+  }
+}
+
+.title-top, .title-bottom{
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: arial;
+  vertical-align: middle;
+}
+.title-top{
+  margin-top: 80px;
+}
+
+.ron-title{
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 10px solid white;
+}
