@@ -1,5 +1,6 @@
 var $ = require('jquery');
 var Handlebars = require('handlebars');
+var models = require('./models');
 var startPage = require('../templates/start-screen.hbs');
 var charScreen = require('../templates/char-screen.hbs');
 

@@ -35,6 +35,29 @@ function GoodGuy(config){
 
 GoodGuy.prototype = new Character();
 
+var goodGuys = [
+  new GoodGuy({
+    name : 'Ron Burgundy',
+    picture: '../images/ron-burgundy.jpg',
+    health : 100,
+    weapon : {
+      kind: 'bed post',
+      maxDamage: 10,
+      minDamage: 2,
+    },
+  }),
+  new GoodGuy({
+    name : 'Ron Burgundy',
+    picture: '../images/ron-burgundy.jpg', 
+    health : 100,
+    weapon : {
+      kind: 'bed post',
+      maxDamage: 10,
+      minDamage: 2,
+    },
+  }),
+];
+
 
 
 // ################################################
