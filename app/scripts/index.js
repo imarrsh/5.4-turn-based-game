@@ -8,15 +8,22 @@ var fightScreen = require('../templates/fight-screen.hbs');
 // wait for dom to be ready
 (function(){
 
-  var gameScreen = $('.page');
+  var gameScreen = $('.page'),
+      chosenChar;
 
   gameScreen.html(startPage());
 
+  // load data from models
+  var playerCharList = {
+    newsChannel4 : models.goodGuys
+  };
 
   $( ".start" ).on( "click", function(event){
     event.preventDefault();
-    gameScreen.html(charScreen());
+    console.log(playerCharList);
+    gameScreen.html(charScreen(playerCharList));
   });
+
 
   // start fight button
   $(document).on('click', '.fight', function(event){

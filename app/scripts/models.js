@@ -38,7 +38,7 @@ GoodGuy.prototype = new Character();
 var goodGuys = [
   new GoodGuy({
     name : 'Ron Burgundy',
-    picture: '../images/ron-burgundy.jpg',
+    picture: 'images/ron-burgundy.jpg',
     health : 100,
     weapon : {
       kind: 'bed post',
@@ -48,7 +48,7 @@ var goodGuys = [
   }),
   new GoodGuy({
     name : 'Brick Tamland',
-    picture: '../images/brick-tamland.jpg',
+    picture: 'images/brick-tamland.jpg',
     health : 100,
     weapon : {
       kind: 'grenade',
@@ -58,7 +58,7 @@ var goodGuys = [
   }),
   new GoodGuy({
     name : 'Brian Fantana',
-    picture: '../images/brian-fantana.jpg',
+    picture: 'images/brian-fantana.jpg',
     health : 100,
     weapon : {
       kind: 'revolver',
@@ -68,7 +68,7 @@ var goodGuys = [
   }),
   new GoodGuy({
     name : 'Champ Kind',
-    picture: '../images/champ-kind.jpg',
+    picture: 'images/champ-kind.jpg',
     health : 100,
     weapon : {
       kind: 'brass knuckles',
@@ -94,7 +94,7 @@ Villain.prototype = new Character();
 var badGuys = [
   new Villain({
     name : 'Wes Mantooth',
-    picture: '../images/wes-mantooth.jpg',
+    picture: 'images/wes-mantooth.jpg',
     health : 100,
     weapon : {
       kind: 'switchblade',
@@ -109,5 +109,6 @@ var badGuys = [
 module.exports = {
   'Character': Character,
   'GoodGuy': GoodGuy,
-  'Villain': Villain
+  'Villain': Villain,
+  'goodGuys': goodGuys,
 };
