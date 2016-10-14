@@ -13,7 +13,9 @@ var fightScreen = require('../templates/fight-screen.hbs');
   var gameScreen = $('.page'),
       chosenChar,
       chosenVillain,
-      pairing = [chosenChar, chosenVillain];
+      pairing = {
+        combatants: [chosenChar, chosenVillain]
+      };
 
   // render the start screen in the app
   gameScreen.html(startPage());
