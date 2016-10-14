@@ -5,9 +5,9 @@
     <div class="col-sm-6">
       <div class="good-guy">
         <div class="">
-          <img src="images/ron-burgundy.jpg" alt="" />
-          <p class='good-name'>name</p>
-          <p class='good-health'>health</p>
+          <img src="{{picture}}" alt="" />
+          <p class='good-name'>{{chosenChar.name}}</p>
+          <p class='good-health'>{{health}}</p>
           <button type="button" name="button" class='btn btn-default btn-lg attack-button'>Attack</button>
         </div>
       </div>
@@ -16,8 +16,8 @@
     <div class="col-sm-6">
       <div class="bad-guy">
         <div class="">
-          <img src="images/wes-mantooth.jpg" alt="" />
-          <p class='bad-name'>name</p>
+          <img src="images/wes-mantooth.jpg" alt=""/>
+          <p class='bad-name'>{{enemyCharList.name}}</p>
           <p class='bad-health'>health</p>
         </div>
       </div>

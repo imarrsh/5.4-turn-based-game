@@ -111,4 +111,5 @@ module.exports = {
   'GoodGuy': GoodGuy,
   'Villain': Villain,
   'goodGuys': goodGuys,
+  'badGuys': badGuys
 };

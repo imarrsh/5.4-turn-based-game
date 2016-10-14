@@ -1,4 +1,5 @@
 var $ = require('jquery');
+var _ = require('underscore');
 var Handlebars = require('handlebars');
 var models = require('./models');
 var startPage = require('../templates/start-screen.hbs');
@@ -17,6 +18,9 @@ var fightScreen = require('../templates/fight-screen.hbs');
   var playerCharList = {
     newsChannel4 : models.goodGuys
   };
+  var enemyCharList =  models.badGuys;
+
+  console.log('enemy', enemyCharList);
 
   $( ".start" ).on( "click", function(event){
     event.preventDefault();
@@ -26,21 +30,18 @@ var fightScreen = require('../templates/fight-screen.hbs');
 
   $(document).on('click', '.character', function(event){
     event.preventDefault();
-    var chosenChar = $(this);
+    var $chosenChar = $(this);
+    var charName = $chosenChar.data('char-name');
+    chosenChar = _.filter(playerCharList.newsChannel4, {'name': charName})[0];
     console.log(chosenChar);
   })
 
   // start fight button
   $(document).on('click', '.fight', function(event){
     event.preventDefault();
-    gameScreen.html(fightScreen());
-    console.log('hi');
-    // if (character is selected) {
-    //   gameScreen.html(fightScreen());
-    // }
-    // else{
-    //   $alert('Please choose a character');
-    // }
+    console.log(chosenChar);
+    gameScreen.html(fightScreen(chosenChar, enemyCharList));
+    console.log(enemyCharList);
   });
 
 
