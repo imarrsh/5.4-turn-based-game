@@ -19,9 +19,15 @@ body{
   // height: 100%;
 }
 
+
+//start page
 .page {
   h1{
+  font-size: 40px;
+  font-weight: bold;
+  font-family: arial;
   text-align: center;
+  color: white;
   }
   .title-image{
     text-align: center;
@@ -39,14 +45,6 @@ body{
     width: 200px;
   }
 }
-
-.title-top, .title-bottom{
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  font-family: arial;
-  vertical-align: middle;
-}
 .title-top{
   margin-top: 80px;
 }
@@ -56,4 +54,55 @@ body{
   height: 250px;
   border-radius: 50%;
   border: 10px solid white;
+}
+
+
+//choose character page
+.choose-char{
+  margin-top: 100px;
+  margin-bottom: 40px;
+}
+
+.character-image-list{
+  text-align: center;
+  cursor: pointer;
+
+  img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    text-align: center;
+  }
+  .hover{
+    display: inline-block;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    margin-right: 5px;
+  }
+  .hover:hover{
+    border: 1px solid white;
+    border-radius: 6px;
+  }
+  .name{
+    height: auto;
+    width: auto;
+    position: absolute;
+    bottom: -40px;
+    left: 0px;
+    border: 0px;
+    color: white;
+    font-size: 30px;
+  }
+  .champ{
+    left: 10px;
+  }
+  .brick, .brian{
+    left: 5px;
+  }
+}
+.fight{
+  margin-top: 70px;
+  text-align: center;
+
 }
