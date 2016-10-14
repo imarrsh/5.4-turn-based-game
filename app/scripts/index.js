@@ -4,12 +4,17 @@ var startPage = require('../templates/start-screen.hbs');
 var charScreen = require('../templates/char-screen.hbs');
 
 
-var gameScreen = $('.page');
+// wait for dom to be ready
+(function(){
 
-gameScreen.html(startPage());
+  var gameScreen = $('.page');
+
+  gameScreen.html(startPage());
 
 
-$( ".start" ).on( "click", function(event){
-  event.preventDefault();
-  gameScreen.html(charScreen());
-});
+  $( ".start" ).on( "click", function(event){
+    event.preventDefault();
+    gameScreen.html(charScreen());
+  });
+
+}());
