@@ -57,7 +57,6 @@ var fightScreen = require('../templates/fight-screen.hbs');
     chosenChar = _.filter(playerCharList.characters, {'name': charName})[0];
     console.log(chosenChar);
     setVillain();
-
   });
 
   // start fight button
