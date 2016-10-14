@@ -10,10 +10,13 @@ function Character(config){
 // all characters can do these things
 Character.prototype.attack = function(){
   // do attack stuff
+  // this characters weapon name and min/max damage
+  // affect characters health prop
 };
 
 Character.prototype.takeDamage = function(){
   // do take damage stuff
+  // recieve stuff from attack
 };
 
 // running list of other things we eventually want
@@ -100,6 +103,36 @@ var badGuys = [
       kind: 'switchblade',
       maxDamage: 15,
       minDamage: 7
+    }
+  }),
+  new Villain({
+    name : 'Ed Harken',
+    picture: 'images/ed-harken.jpg',
+    health : 100,
+    weapon : {
+      kind: 'pipe',
+      maxDamage: 12,
+      minDamage: 5
+    }
+  }),
+  new Villain({
+    name : 'Jason Mann',
+    picture: 'images/jason-mann.jpg',
+    health : 100,
+    weapon : {
+      kind: 'chains',
+      maxDamage: 15,
+      minDamage: 7
+    }
+  }),
+  new Villain({
+    name : 'Paul Flare',
+    picture: 'images/paul-flare.jpg',
+    health : 100,
+    weapon : {
+      kind: 'fork',
+      maxDamage: 12,
+      minDamage: 6
     }
   })
 ];
