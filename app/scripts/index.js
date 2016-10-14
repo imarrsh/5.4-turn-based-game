@@ -24,6 +24,11 @@ var fightScreen = require('../templates/fight-screen.hbs');
     gameScreen.html(charScreen(playerCharList));
   });
 
+  $(document).on('click', '.character', function(event){
+    event.preventDefault();
+    var chosenChar = $(this);
+    console.log(chosenChar);
+  })
 
   // start fight button
   $(document).on('click', '.fight', function(event){
