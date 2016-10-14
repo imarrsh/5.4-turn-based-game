@@ -52,6 +52,8 @@ var fightScreen = require('../templates/fight-screen.hbs');
   // push character data to chosenChar variable
   $(document).on('click', '.character', function(event){
     event.preventDefault();
+    $(this).addClass('selected');
+    $(this).siblings().removeClass('selected');
     var $chosenChar = $(this);
     var charName = $chosenChar.data('char-name');
     chosenChar = _.filter(playerCharList.characters, {'name': charName})[0];
