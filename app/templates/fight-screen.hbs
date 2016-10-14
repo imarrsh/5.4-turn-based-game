@@ -1,4 +1,3 @@
-
 <div class="battle-screen">
   <h1>Fight!</h1>
   <div class="col-sm-12">
@@ -7,9 +6,9 @@
       <div class="col-sm-6">
         <div class="good-guy">
           <div class="">
-            <img class='fighter-img' src="{{picture}}" alt="" />
-            <p class='good-name'>{{name}}</p>
-            <p class='good-health'>{{health}}</p>
+            <img src="{{combatants.0.picture}}" alt="" />
+            <p class='good-name'>{{combatants.0.name}}</p>
+            <p class='good-health'>{{combatants.0.health}}</p>
             <button type="button" name="button" class='btn btn-default btn-lg attack-button'>Attack</button>
           </div>
         </div>
@@ -17,10 +16,10 @@
 
       <div class="col-sm-6">
         <div class="bad-guy">
-          <div class="bad">
-            <img class='fighter-img' src="images/wes-mantooth.jpg" alt=""/>
-            <p class='bad-name'>name</p>
-            <p class='bad-health'>health</p>
+          <div class="">
+            <img src="{{combatants.1.picture}}" alt=""/>
+            <p class='bad-name'>{{combatants.1.name}}</p>
+            <p class='bad-health'>{{combatants.1.health}}</p>
           </div>
         </div>
       </div>
@@ -36,4 +35,5 @@
     </div>
 
   </div>
+
 </div>

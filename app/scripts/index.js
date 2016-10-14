@@ -14,7 +14,7 @@ var fightScreen = require('../templates/fight-screen.hbs');
       chosenChar,
       chosenVillain,
       pairing = {
-        combatants: [chosenChar, chosenVillain]
+        combatants : [chosenChar, chosenVillain]
       };
 
   // render the start screen in the app
@@ -39,6 +39,8 @@ var fightScreen = require('../templates/fight-screen.hbs');
     var villianIndex = Math.floor(Math.random() * villainsLen);
 
     chosenVillain = villains[villianIndex];
+    pairing.combatants[1] = chosenVillain;
+
     console.log(chosenVillain, pairing);
   }
 
@@ -56,15 +58,18 @@ var fightScreen = require('../templates/fight-screen.hbs');
     $(this).siblings().removeClass('selected');
     var $chosenChar = $(this);
     var charName = $chosenChar.data('char-name');
+
     chosenChar = _.filter(playerCharList.characters, {'name': charName})[0];
+    pairing.combatants[0] = chosenChar;
+
     console.log(chosenChar);
-    setVillain();
+    setVillain(); // run villain ranomizer
   });
 
   // start fight button
   $(document).on('click', '.fight', function(event){
     event.preventDefault();
-    gameScreen.html(fightScreen(chosenChar));
+    gameScreen.html(fightScreen(pairing));
     // console.log(enemyCharList);
   });
 
