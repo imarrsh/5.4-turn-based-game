@@ -9,8 +9,11 @@ var fightScreen = require('../templates/fight-screen.hbs');
 // wait for dom to be ready
 (function(){
 
+  // set some game variables
   var gameScreen = $('.page'),
-      chosenChar;
+      chosenChar,
+      chosenVillain,
+      pairing = [chosenChar, chosenVillain];
 
   // render the start screen in the app
   gameScreen.html(startPage());
@@ -28,8 +31,13 @@ var fightScreen = require('../templates/fight-screen.hbs');
 
   // set the villian character
   function setVillain(){
+    var villains = enemyCharList.characters; // get the array
+    var villainsLen = villains.length; // get the length
+    // do some math to get the index of a random villain
+    var villianIndex = Math.floor(Math.random() * villainsLen);
 
-    console.log('villains: ', enemyCharList.characters);
+    chosenVillain = villains[villianIndex];
+    console.log(chosenVillain, pairing);
   }
 
   // track game start
