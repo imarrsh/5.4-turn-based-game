@@ -17,4 +17,14 @@ var charScreen = require('../templates/char-screen.hbs');
     gameScreen.html(charScreen());
   });
 
+  // start fight button
+  // $('.fight').on('click', function(event){
+  //   event.preventDefault();
+  //   if (character is selected) {
+  //     gameScreen.html(fightScreen());
+  //   }
+  //   else{
+  //     $alert('Please choose a character');
+  //   }
+  // })
 }());
