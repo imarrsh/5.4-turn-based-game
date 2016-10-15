@@ -118,19 +118,23 @@ body{
   }
   .message-board{
     width: 100%;
-    height: 200px;
+    height: 175px;
     border: 1px solid white;
   }
-  .fighter-img{
+  img{
     width: 200px;
     height: 200px;
-    border-radius: 3px;
+    border-radius: 6px;
   }
   .bad{
     text-align: right;
   }
   .attack-button{
+    margin-bottom: 20px;
     font-size: 27px;
     font-weight: normal;
+  }
+  .message-board{
+    margin-bottom: 20px;
   }
 }
