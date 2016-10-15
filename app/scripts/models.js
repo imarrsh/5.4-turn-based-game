@@ -8,15 +8,25 @@ function Character(config){
 }
 
 // all characters can do these things
-Character.prototype.attack = function(){
+Character.prototype.attack = function(victim){
   // do attack stuff
   // this characters weapon name and min/max damage
   // affect characters health prop
+  var maxDamage = this.weapon.maxDamage;
+  var minDamage = this.weapon.minDamage;
+  var damageDealt = maxDamage - minDamage;
+
+  console.log(this.name, 'attacking with', this.weapon.kind, "dealing", maxDamage, 'to', victim.name);
+
+  this.takeDamage(maxDamage, victim);
 };
 
-Character.prototype.takeDamage = function(){
+Character.prototype.takeDamage = function(damage, victim){
   // do take damage stuff
   // recieve stuff from attack
+  var currentHealth = victim.health - damage;
+  victim.health = currentHealth;
+  console.log(victim.name, 'took damage of', damage, 'from', this.name, 'health is', currentHealth);
 };
 
 // running list of other things we eventually want
@@ -24,9 +34,7 @@ Character.prototype.takeDamage = function(){
 
 // - heal
 // - flee
-// -
-// -
-// -
+
 
 // ################################################
 // GoodGuy constructors & prototype setup
@@ -54,9 +62,9 @@ var goodGuys = [
     picture: 'images/brick-tamland.jpg',
     health : 100,
     weapon : {
-      kind: 'grenade',
-      maxDamage: 25,
-      minDamage: 10
+      kind: 'trident',
+      maxDamage: 13,
+      minDamage: 8
     }
   }),
   new GoodGuy({

@@ -66,12 +66,23 @@ var fightScreen = require('../templates/fight-screen.hbs');
     setVillain(); // run villain ranomizer
   });
 
-  // start fight button
+  // start fight screen
   $(document).on('click', '.fight', function(event){
     event.preventDefault();
     gameScreen.html(fightScreen(pairing));
     // console.log(enemyCharList);
   });
+
+  // attack button
+  $(document).on('click', '.attack-button', function(event){
+    event.preventDefault();
+    chosenChar.attack(chosenVillain);
+    // wait for computer to attack
+    setTimeout(function(){
+      chosenVillain.attack(chosenChar);
+    }, 2500);
+  });
+
 
 
 }());
