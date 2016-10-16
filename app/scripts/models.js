@@ -35,6 +35,11 @@ Character.prototype.takeDamage = function(damage, victim){
   console.log(victim.name, 'took damage of', damage, 'from', this.name, 'health is', currentHealth);
 };
 
+Character.prototype.announce = function(){
+  // find the audio property and play it
+  this.audio.play();
+};
+
 // running list of other things we eventually want
 // characters to be able to do ?
 
@@ -56,7 +61,7 @@ var goodGuys = [
   new GoodGuy({
     name : 'Ron Burgundy',
     picture: 'images/ron-burgundy.jpg',
-    audio: '../../media-for-game/world.mp3',
+    audio: new Audio('../../media-for-game/world.mp3'),
     health : 100,
     maxHealth : 100,
     weapon : {
@@ -68,7 +73,7 @@ var goodGuys = [
   new GoodGuy({
     name : 'Brick Tamland',
     picture: 'images/brick-tamland.jpg',
-    audio: '../../media-for-game/grenade.mp3',
+    audio: new Audio('../../media-for-game/grenade.mp3'),
     health : 100,
     maxHealth : 100,
     weapon : {
@@ -80,7 +85,7 @@ var goodGuys = [
   new GoodGuy({
     name : 'Brian Fantana',
     picture: 'images/brian-fantana.jpg',
-    audio: '../../media-for-game/musk.mp3',
+    audio: new Audio('../../media-for-game/musk.mp3'),
     health : 100,
     maxHealth : 100,
     weapon : {
@@ -92,7 +97,7 @@ var goodGuys = [
   new GoodGuy({
     name : 'Champ Kind',
     picture: 'images/champ-kind.jpg',
-    audio: '../../media-for-game/raven.mp3',
+    audio: new Audio('../../media-for-game/ateyoursquirrel.mp3'),
     health : 100,
     maxHealth : 100,
     weapon : {

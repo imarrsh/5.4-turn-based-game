@@ -55,11 +55,6 @@ var loseScreen = require('../templates/fight-end-lose.hbs');
     gameScreen.html(charScreen(playerCharList));
   });
 
-  //audio
-  // $(document).on('click', '.character', function(){
-  //   $('audio')[0].play(this.audio);
-  // });
-
   // push character data to chosenChar variable
   var $chosenChar;
   $(document).on('click', '.character', function(event){
@@ -75,6 +70,9 @@ var loseScreen = require('../templates/fight-end-lose.hbs');
 
     console.log(chosenChar);
     setVillain(); // run villain ranomizer
+
+    // call characters announce method
+    chosenChar.announce();
   });
 
   // start fight screen
@@ -102,13 +100,13 @@ var loseScreen = require('../templates/fight-end-lose.hbs');
     }, 2500);
   });
 
-function disableButton(){
-  $('.attack-button').prop("disabled", true);
-};
+  function disableButton(){
+    $('.attack-button').prop("disabled", true);
+  }
 
-function enableButton(){
-  $('.attack-button').prop("disabled", false);
-}
+  function enableButton(){
+    $('.attack-button').prop("disabled", false);
+  }
 
   $(document).on('click', '.attack-button', function(event){
     event.preventDefault();
@@ -139,7 +137,7 @@ function enableButton(){
 
     var badHealth = chosenVillain.health;
     var goodHealth = chosenChar.health;
-// changes to the end screen after one character's health reaches zero
+    // changes to the end screen after one character's health reaches zero
     if (goodHealth <= 0) {
       setTimeout(losingScreen, 500);
     }
@@ -149,7 +147,8 @@ function enableButton(){
     console.log('attack event logged');
 
   });
-// functions for changing to the end screen
+
+  // functions for changing to the end screen
   function losingScreen(){
     gameScreen.html(loseScreen);
   }
