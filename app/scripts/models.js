@@ -16,8 +16,11 @@ Character.prototype.attack = function(victim){
   var minDamage = this.weapon.minDamage;
   var damageDealt = maxDamage - minDamage;
 
-  console.log(this.name, 'attacking with', this.weapon.kind, "dealing", maxDamage, 'to', victim.name);
-
+// puts attackmessage into the messagebox
+  var attackMessage= this.name + ' ' + 'attacking with' + ' ' + this.weapon.kind + ' ' + "dealing" + ' ' + maxDamage + ' ' + 'to' + ' ' + victim.name;
+  $('.message-board').html(attackMessage);
+  console.log(attackMessage);
+  
   // call takeDamage on the victim object
   this.takeDamage(maxDamage, victim);
   // update health info on screen

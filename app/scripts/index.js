@@ -5,6 +5,9 @@ var models = require('./models');
 var startPage = require('../templates/start-screen.hbs');
 var charScreen = require('../templates/char-screen.hbs');
 var fightScreen = require('../templates/fight-screen.hbs');
+var winScreen = require('../templates/fight-end-screen.hbs');
+var loseScreen = require('../templates/fight-end-lose.hbs')
+
 
 // wait for dom to be ready
 (function(){
@@ -78,13 +81,21 @@ var fightScreen = require('../templates/fight-screen.hbs');
     event.preventDefault();
     console.log('button click heard');
     chosenChar.attack(chosenVillain);
-
+    disableButton();
+    setTimeout(enableButton, 2500);
     // wait for computer to attack
     setTimeout(function(){
       chosenVillain.attack(chosenChar);
     }, 2500);
   });
 
+function disableButton(){
+  $('.attack-button').prop("disabled", true);
+};
+
+function enableButton(){
+  $('.attack-button').prop("disabled", false);
+}
 
   $(document).on('click', '.attack-button', function(event){
     event.preventDefault();
@@ -94,13 +105,13 @@ var fightScreen = require('../templates/fight-screen.hbs');
       $('.player-image').animate({
         'marginLeft' : '+=350px'
       }, 100);
-      //$( ".enemy-image" ).toggle( "explode" );
+      // $( ".enemy-image" ).toggle( "explode" );
     }
     function moveBack(){
       $('.player-image').animate({
         'marginLeft' : '-=350px'
       }, 700);
-      //$(".enemy-image").toggle("explode");
+      // $(".enemy-image").toggle("explode");
     }
   });
 
@@ -112,10 +123,26 @@ var fightScreen = require('../templates/fight-screen.hbs');
     } else {
       $('.good-health').text(chosenChar.health + '/' + chosenChar.maxHealth);
     }
+
+    var badHealth = chosenVillain.health;
+    var goodHealth = chosenChar.health;
+// changes to the end screen after one character's health reaches zero
+    if (goodHealth <= 0) {
+      setTimeout(losingScreen, 500);
+    }
+    else if (badHealth <= 0) {
+      setTimeout(winningScreen, 500);
+    }
     console.log('attack event logged');
+
   });
-
-
+// functions for changing to the end screen
+  function losingScreen(){
+    gameScreen.html(loseScreen);
+  }
+  function winningScreen(){
+    gameScreen.html(winScreen);
+  }
 
   // $(document).on('click', '.attack-button', function(event){
   //   event.preventDefault();
