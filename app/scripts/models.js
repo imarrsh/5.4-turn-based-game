@@ -20,7 +20,7 @@ Character.prototype.attack = function(victim){
   var attackMessage= this.name + ' ' + 'attacking with' + ' ' + this.weapon.kind + ' ' + "dealing" + ' ' + maxDamage + ' ' + 'to' + ' ' + victim.name;
   $('.message-board').html(attackMessage);
   console.log(attackMessage);
-  
+
   // call takeDamage on the victim object
   this.takeDamage(maxDamage, victim);
   // update health info on screen
@@ -56,6 +56,7 @@ var goodGuys = [
   new GoodGuy({
     name : 'Ron Burgundy',
     picture: 'images/ron-burgundy.jpg',
+    audio: '../../media-for-game/awful.mp3',
     health : 100,
     maxHealth : 100,
     weapon : {
@@ -67,6 +68,7 @@ var goodGuys = [
   new GoodGuy({
     name : 'Brick Tamland',
     picture: 'images/brick-tamland.jpg',
+    audio: '../../media-for-game/grenade.mp3',
     health : 100,
     maxHealth : 100,
     weapon : {
@@ -78,6 +80,7 @@ var goodGuys = [
   new GoodGuy({
     name : 'Brian Fantana',
     picture: 'images/brian-fantana.jpg',
+    audio: '../../media-for-game/musk.mp3',
     health : 100,
     maxHealth : 100,
     weapon : {
@@ -89,6 +92,7 @@ var goodGuys = [
   new GoodGuy({
     name : 'Champ Kind',
     picture: 'images/champ-kind.jpg',
+    audio: '../../media-for-game/raven.mp3',
     health : 100,
     maxHealth : 100,
     weapon : {

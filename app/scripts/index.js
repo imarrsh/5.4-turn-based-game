@@ -55,12 +55,19 @@ var loseScreen = require('../templates/fight-end-lose.hbs')
     gameScreen.html(charScreen(playerCharList));
   });
 
+  //audio
+  // $(document).on('click', '.character', function(){
+  //   $('audio')[0].play(this.audio);
+  // });
+
   // push character data to chosenChar variable
+  var $chosenChar;
   $(document).on('click', '.character', function(event){
     event.preventDefault();
     $(this).addClass('selected');
     $(this).siblings().removeClass('selected');
-    var $chosenChar = $(this);
+
+    $chosenChar = $(this);
     var charName = $chosenChar.data('char-name');
 
     chosenChar = _.filter(playerCharList.characters, {'name': charName})[0];
@@ -73,7 +80,12 @@ var loseScreen = require('../templates/fight-end-lose.hbs')
   // start fight screen
   $(document).on('click', '.fight', function(event){
     event.preventDefault();
-    gameScreen.html(fightScreen(pairing));
+    if ($chosenChar === undefined) {
+      alert('Please choose a character');
+    }
+    else {
+      gameScreen.html(fightScreen(pairing));
+    }
     // console.log(enemyCharList);
   });
 
