@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var _ = require('underscore');
 var Handlebars = require('handlebars');
+
 var models = require('./models');
 var startPage = require('../templates/start-screen.hbs');
 var charScreen = require('../templates/char-screen.hbs');
@@ -105,13 +106,13 @@ function enableButton(){
       $('.player-image').animate({
         'marginLeft' : '+=350px'
       }, 100);
-      // $( ".enemy-image" ).toggle( "explode" );
+      //$( ".enemy-image" ).toggle( "explode" );
     }
     function moveBack(){
       $('.player-image').animate({
         'marginLeft' : '-=350px'
       }, 700);
-      // $(".enemy-image").toggle("explode");
+      //$(".enemy-image").toggle("explode");
     }
   });
 
