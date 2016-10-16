@@ -122,8 +122,8 @@ body{
     border: 1px solid white;
   }
   img{
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     border-radius: 6px;
   }
   .bad{
@@ -136,5 +136,9 @@ body{
   }
   .message-board{
     margin-bottom: 20px;
+  }
+  .enemy-image{
+
+    background-color: blue;
   }
 }

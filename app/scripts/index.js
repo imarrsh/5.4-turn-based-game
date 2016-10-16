@@ -91,12 +91,18 @@ var fightScreen = require('../templates/fight-screen.hbs');
       $('.player-image').animate({
         'marginLeft' : '+=350px'
       }, 100);
+      //$( ".enemy-image" ).toggle( "explode" );
     }
     function moveBack(){
       $('.player-image').animate({
         'marginLeft' : '-=350px'
       }, 700);
+      //$(".enemy-image").toggle("explode");
     }
   });
 
+  // $(document).on('click', '.attack-button', function(event){
+  //   event.preventDefault();
+  // $(".enemy-image").toggle("explode");
+  //   });
 }());
