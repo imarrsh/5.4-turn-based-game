@@ -73,7 +73,7 @@ var fightScreen = require('../templates/fight-screen.hbs');
     // console.log(enemyCharList);
   });
 
-  // attack button
+  //attack button
   $(document).on('click', '.attack-button', function(event){
     event.preventDefault();
     chosenChar.attack(chosenVillain);
@@ -83,6 +83,20 @@ var fightScreen = require('../templates/fight-screen.hbs');
     }, 2500);
   });
 
-
+  $(document).on('click', '.attack-button', function(event){
+    event.preventDefault();
+    moveRight();
+    setTimeout(moveBack, 250);
+    function moveRight(){
+      $('.player-image').animate({
+        'marginLeft' : '+=350px'
+      }, 100);
+    }
+    function moveBack(){
+      $('.player-image').animate({
+        'marginLeft' : '-=350px'
+      }, 700);
+    }
+  });
 
 }());
