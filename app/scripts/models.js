@@ -56,7 +56,7 @@ var goodGuys = [
   new GoodGuy({
     name : 'Ron Burgundy',
     picture: 'images/ron-burgundy.jpg',
-    audio: '../../media-for-game/awful.mp3',
+    audio: '../../media-for-game/world.mp3',
     health : 100,
     maxHealth : 100,
     weapon : {

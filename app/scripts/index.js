@@ -7,7 +7,7 @@ var startPage = require('../templates/start-screen.hbs');
 var charScreen = require('../templates/char-screen.hbs');
 var fightScreen = require('../templates/fight-screen.hbs');
 var winScreen = require('../templates/fight-end-screen.hbs');
-var loseScreen = require('../templates/fight-end-lose.hbs')
+var loseScreen = require('../templates/fight-end-lose.hbs');
 
 
 // wait for dom to be ready
