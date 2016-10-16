@@ -76,12 +76,15 @@ var fightScreen = require('../templates/fight-screen.hbs');
   //attack button
   $(document).on('click', '.attack-button', function(event){
     event.preventDefault();
+    console.log('button click heard');
     chosenChar.attack(chosenVillain);
+
     // wait for computer to attack
     setTimeout(function(){
       chosenVillain.attack(chosenChar);
     }, 2500);
   });
+
 
   $(document).on('click', '.attack-button', function(event){
     event.preventDefault();
@@ -100,6 +103,19 @@ var fightScreen = require('../templates/fight-screen.hbs');
       //$(".enemy-image").toggle("explode");
     }
   });
+
+  // event to update health on screen
+  $(document).on('player:attack', function(event, victim){
+    console.log(victim, 'of attack');
+    if(victim instanceof models.Villain){
+      $('.bad-health').text(chosenVillain.health + '/' + chosenVillain.maxHealth);
+    } else {
+      $('.good-health').text(chosenChar.health + '/' + chosenChar.maxHealth);
+    }
+    console.log('attack event logged');
+  });
+
+
 
   // $(document).on('click', '.attack-button', function(event){
   //   event.preventDefault();

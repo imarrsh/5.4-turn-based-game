@@ -18,7 +18,10 @@ Character.prototype.attack = function(victim){
 
   console.log(this.name, 'attacking with', this.weapon.kind, "dealing", maxDamage, 'to', victim.name);
 
+  // call takeDamage on the victim object
   this.takeDamage(maxDamage, victim);
+  // update health info on screen
+  $(document).trigger('player:attack', victim);
 };
 
 Character.prototype.takeDamage = function(damage, victim){
@@ -51,6 +54,7 @@ var goodGuys = [
     name : 'Ron Burgundy',
     picture: 'images/ron-burgundy.jpg',
     health : 100,
+    maxHealth : 100,
     weapon : {
       kind: 'bed post',
       maxDamage: 10,
@@ -61,6 +65,7 @@ var goodGuys = [
     name : 'Brick Tamland',
     picture: 'images/brick-tamland.jpg',
     health : 100,
+    maxHealth : 100,
     weapon : {
       kind: 'trident',
       maxDamage: 13,
@@ -71,6 +76,7 @@ var goodGuys = [
     name : 'Brian Fantana',
     picture: 'images/brian-fantana.jpg',
     health : 100,
+    maxHealth : 100,
     weapon : {
       kind: 'revolver',
       maxDamage: 18,
@@ -81,6 +87,7 @@ var goodGuys = [
     name : 'Champ Kind',
     picture: 'images/champ-kind.jpg',
     health : 100,
+    maxHealth : 100,
     weapon : {
       kind: 'brass knuckles',
       maxDamage: 18,
@@ -107,6 +114,7 @@ var badGuys = [
     name : 'Wes Mantooth',
     picture: 'images/wes-mantooth.jpg',
     health : 100,
+    maxHealth : 100,
     weapon : {
       kind: 'switchblade',
       maxDamage: 15,
@@ -117,6 +125,7 @@ var badGuys = [
     name : 'Ed Harken',
     picture: 'images/ed-harken.jpg',
     health : 100,
+    maxHealth : 100,
     weapon : {
       kind: 'pipe',
       maxDamage: 12,
@@ -127,6 +136,7 @@ var badGuys = [
     name : 'Jason Mann',
     picture: 'images/jason-mann.jpg',
     health : 100,
+    maxHealth : 100,
     weapon : {
       kind: 'chains',
       maxDamage: 15,
@@ -137,6 +147,7 @@ var badGuys = [
     name : 'Paul Flare',
     picture: 'images/paul-flare.jpg',
     health : 100,
+    maxHealth : 100,
     weapon : {
       kind: 'fork',
       maxDamage: 12,
