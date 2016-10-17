@@ -56,13 +56,18 @@ var loseScreen = require('../templates/fight-end-lose.hbs');
   });
 
   // push character data to chosenChar variable
-  var $chosenChar;
   $(document).on('click', '.character', function(event){
     event.preventDefault();
+
+    // stop any currently playing audio
+    if(chosenChar){
+      chosenChar.audio.pause();
+    }
+    // add classes to confirm selection
     $(this).addClass('selected');
     $(this).siblings().removeClass('selected');
 
-    $chosenChar = $(this);
+    var $chosenChar = $(this);
     var charName = $chosenChar.data('char-name');
 
     chosenChar = _.filter(playerCharList.characters, {'name': charName})[0];
@@ -78,10 +83,11 @@ var loseScreen = require('../templates/fight-end-lose.hbs');
   // start fight screen
   $(document).on('click', '.fight', function(event){
     event.preventDefault();
-    if ($chosenChar === undefined) {
+    if (chosenChar === undefined) {
       alert('Please choose a character');
     }
     else {
+      chosenChar.audio.pause(); // pause char audio playback
       gameScreen.html(fightScreen(pairing));
     }
     // console.log(enemyCharList);

@@ -1,4 +1,5 @@
 var $ = require('jquery');
+var _ = require('underscore');
 
 function Character(config){
 
@@ -14,15 +15,18 @@ Character.prototype.attack = function(victim){
   // affect characters health prop
   var maxDamage = this.weapon.maxDamage;
   var minDamage = this.weapon.minDamage;
-  var damageDealt = maxDamage - minDamage;
+  var damageRange = _.range(minDamage, maxDamage + 1);
+  var randomDamage = Math.floor(Math.random() * damageRange.length);
+  var damageDealt = damageRange[randomDamage];
+  // console.log(damageDealt);
 
 // puts attackmessage into the messagebox
-  var attackMessage= this.name + ' ' + 'attacking with' + ' ' + this.weapon.kind + ' ' + "dealing" + ' ' + maxDamage + ' ' + 'to' + ' ' + victim.name;
+  var attackMessage= this.name + ' ' + 'attacking with' + ' ' + this.weapon.kind + ' ' + "dealing" + ' ' + damageDealt + ' ' + 'to' + ' ' + victim.name;
   $('.message-board').html(attackMessage);
   console.log(attackMessage);
 
   // call takeDamage on the victim object
-  this.takeDamage(maxDamage, victim);
+  this.takeDamage(damageDealt, victim);
   // update health info on screen
   $(document).trigger('player:attack', victim);
 };
@@ -37,7 +41,7 @@ Character.prototype.takeDamage = function(damage, victim){
 
 Character.prototype.announce = function(){
   // find the audio property and play it
-  this.audio.play();
+    this.audio.play();
 };
 
 // running list of other things we eventually want
@@ -61,7 +65,7 @@ var goodGuys = [
   new GoodGuy({
     name : 'Ron Burgundy',
     picture: 'images/ron-burgundy.jpg',
-    audio: new Audio('../../media-for-game/world.mp3'),
+    audio: new Audio('audio/world.mp3'),
     health : 100,
     maxHealth : 100,
     weapon : {
@@ -73,7 +77,7 @@ var goodGuys = [
   new GoodGuy({
     name : 'Brick Tamland',
     picture: 'images/brick-tamland.jpg',
-    audio: new Audio('../../media-for-game/grenade.mp3'),
+    audio: new Audio('audio/grenade.mp3'),
     health : 100,
     maxHealth : 100,
     weapon : {
@@ -85,7 +89,7 @@ var goodGuys = [
   new GoodGuy({
     name : 'Brian Fantana',
     picture: 'images/brian-fantana.jpg',
-    audio: new Audio('../../media-for-game/musk.mp3'),
+    audio: new Audio('audio/musk.mp3'),
     health : 100,
     maxHealth : 100,
     weapon : {
@@ -97,7 +101,7 @@ var goodGuys = [
   new GoodGuy({
     name : 'Champ Kind',
     picture: 'images/champ-kind.jpg',
-    audio: new Audio('../../media-for-game/ateyoursquirrel.mp3'),
+    audio: new Audio('audio/ateyoursquirrel.mp3'),
     health : 100,
     maxHealth : 100,
     weapon : {
