@@ -107,9 +107,11 @@ var loseScreen = require('../templates/fight-end-lose.hbs');
       $('.enemy-image').animate({
         'marginRight': '+=350px'
       }, 100);
-      setTimeout($('.enemy-image').animate({
-        'marginRight': '-=350px'
-      }), 700);
+      setTimeout(function(){
+        $('.enemy-image').animate({
+          'marginRight': '-=350px'
+        });
+      }, 700);
     }, 2500);
 
   });
