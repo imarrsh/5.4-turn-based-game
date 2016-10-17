@@ -5770,7 +5770,8 @@ body {
 .page h1 {
   font-size: 40px;
   font-weight: bold;
-  font-family: arial;
+  font-family: 'Anton', 'Helvetica', sans-serif;
+  text-transform: uppercase;
   text-align: center;
   color: white; }
 .page .title-image {
@@ -5787,6 +5788,7 @@ body {
   width: 200px; }
 
 .title-top {
+  font-family: 'Anton', 'Helvetica', sans-serif;
   margin-top: 80px; }
 
 .ron-title {
