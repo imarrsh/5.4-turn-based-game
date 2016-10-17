@@ -49,7 +49,7 @@ var loseScreen = require('../templates/fight-end-lose.hbs');
   }
 
   // track game start
-  $( ".start" ).on( "click", function(event){
+  $(document).on("click", '.start', function(event){
     event.preventDefault();
     console.log(playerCharList);
     gameScreen.html(charScreen(playerCharList));
@@ -172,4 +172,7 @@ var loseScreen = require('../templates/fight-end-lose.hbs');
     gameScreen.html(winScreen);
   }
 
+  $(document).on('click', '.restart', function(){
+    location.reload();
+  })
 }());
