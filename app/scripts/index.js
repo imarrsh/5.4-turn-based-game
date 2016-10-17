@@ -103,9 +103,17 @@ var loseScreen = require('../templates/fight-end-lose.hbs');
     // wait for computer to attack
     setTimeout(function(){
       chosenVillain.attack(chosenChar);
+      //make enemy image move
+      $('.enemy-image').animate({
+        'marginRight': '+=350px'
+      }, 100);
+      setTimeout($('.enemy-image').animate({
+        'marginRight': '-=350px'
+      }), 700);
     }, 2500);
-  });
 
+  });
+//used to disable button while enemy is attacking
   function disableButton(){
     $('.attack-button').prop("disabled", true);
   }
@@ -116,12 +124,14 @@ var loseScreen = require('../templates/fight-end-lose.hbs');
 
   $(document).on('click', '.attack-button', function(event){
     event.preventDefault();
+    //moves player image when attack button is clicked
     moveRight();
     setTimeout(moveBack, 250);
     function moveRight(){
       $('.player-image').animate({
         'marginLeft' : '+=350px'
       }, 100);
+      //tried to get jquery explode effect to function
       //$( ".enemy-image" ).toggle( "explode" );
     }
     function moveBack(){
@@ -162,8 +172,4 @@ var loseScreen = require('../templates/fight-end-lose.hbs');
     gameScreen.html(winScreen);
   }
 
-  // $(document).on('click', '.attack-button', function(event){
-  //   event.preventDefault();
-  // $(".enemy-image").toggle("explode");
-  //   });
 }());
