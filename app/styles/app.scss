@@ -146,9 +146,15 @@ body{
   }
 }
 
-.won{
+.won, .lost, .restart-button{
   text-align: center;
 }
-.lost{
-  text-align: center;
+
+.restart{
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  font-family: arial;
+  font-size: 22px;
+  width: 200px;
 }
